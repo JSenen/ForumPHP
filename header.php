@@ -6,7 +6,7 @@
 	<meta name="description" content="A short description." />
 	<meta name="keywords" content="put, keywords, here" />
 	<title>PHP-MySQL forum</title>
-	<link rel="stylesheet" href="style.css" type="text/css">
+	<link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
 <body>
 <h1>My forum</h1>
