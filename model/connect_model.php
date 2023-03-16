@@ -13,10 +13,19 @@ function getConection() {
         $dsn = "mysql:host=$server;dbname=$dbname;charset=UTF8";
         $dbh = new PDO($dsn, $user, $password);
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        echo 'CONEXION ESTABLECIDA';
       
     } catch (PDOException $e) {
         echo $e->getMessage();
+    }
+}
+
+function getLogin(){
+    if ( isset ($_POST['username']) && ($_POST('userpassword'))) {
+        if($_POST['username'] == 'admin' && $_POST['userpassword'] == 'admin ') {
+            return $result = 'login';
+        } else {
+            return $result = 'invalida user';
+        }
     }
 }
 
