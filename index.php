@@ -1,15 +1,32 @@
 <?php
-//create_cat.php
-include 'modelo/connect.php';
-include 'header.php';
-		
-echo '<tr>';
-	echo '<td class="leftpart">';
-		echo '<h3><a href="category.php?id=">Category name</a></h3> Category description goes here';
-	echo '</td>';
-	echo '<td class="rightpart">';				
-			echo '<a href="topic.php?id=">Topic subject</a> at 10-10';
-	echo '</td>';
-echo '</tr>';
-include 'footer.php';
-?>
+
+define ('CONTROLLER_FOLDER',"controller/" );      //Directorio donde definimos los controladores
+define ('DEFAULT_CONTROLLER',"category");        //Controlador por defecto
+define ('DEFAULT_ACTION',"listCategory");       //Accion por defecto
+
+//Obtenemos el controlador. Si no por defecto
+$controller = DEFAULT_CONTROLLER;
+if ( !empty ( $_GET['controller']))
+  $controller = $_GET[ 'controller' ];
+//Obtenemos la accion deseada. Si no por defecto
+$action = DEFAULT_ACTION;
+if ( !empty ( $_GET[ 'action']))
+  $action = $_GET[ 'action' ];
+
+//Formacion del fichero que contiene el controlador
+$controller = CONTROLLER_FOLDER.$controller.'_controller.php';
+//Si la variable controller es un fichero, lo requerimos
+
+if ( is_file ( $controller ) )
+  require_once ($controller);
+else
+  die ("El controlador no existe 404 Not found");
+
+//Si action es una función, ejecutamos el script
+if ( is_callable ($action))
+  $action();
+else
+  die ("La accion requerida no existe 404 not found");
+
+
+
