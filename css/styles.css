@@ -598,9 +598,9 @@ nav.pagination {
 table {
     width: 100%;
     margin-top: 2rem;
-    table-layout: fixed;
+    table-layout: auto;
     background-color: transparent;
-    border-collapse: collapse;
+    border-collapse: separate;
 }
 
 table.admin, 
