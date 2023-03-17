@@ -138,6 +138,7 @@ header button:hover {
 
 header nav ul {
   padding: .5rem 0 0.1rem 0;
+  padding-left: 26rem;
   margin: 0;
   clear: left;
 }
@@ -145,8 +146,13 @@ header nav ul {
 header nav li {
   list-style-type: none;
   display: inline-block;
-  padding-right: .5em;
+  padding-right: .2rem;
 }
+
+header nav a {
+  padding-left: 1rem;
+}
+
 
 .js header nav ul {
   display: none;

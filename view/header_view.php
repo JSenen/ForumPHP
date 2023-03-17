@@ -17,11 +17,9 @@
               <a href="index.php"><img src="img/logo.png" alt="Creative Folk"></a>
             </div>
           <nav>
-            <button id="toggle-navigation" aria-expanded="false">
-              <span class="icon-menu"></span><span class="hidden">Menu</span>
-            </button>
             <ul id="menu">
               <li><a href="indexCategory.php" class="on" aria-current="page">Categorias</a></li>
+              <li><a href="indexCategory.php" class="on" aria-current="page">Login/Register</a></li>
             </ul>
           </nav>
       </div><!-- /.container -->
