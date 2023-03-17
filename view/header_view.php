@@ -12,7 +12,7 @@
 <body>	
     <header>
       <div class="container">
-          <a class="skip-link" href="#content">Skip to content</a>
+          
             <div class="logo">
               <a href="index.php"><img src="img/logo.png" alt="Creative Folk"></a>
             </div>
@@ -22,7 +22,6 @@
             </button>
             <ul id="menu">
               <li><a href="indexCategory.php" class="on" aria-current="page">Categorias</a></li>
-              <li><a href="indexCategory.php" class="on" aria-current="page">Temas</a></li>
             </ul>
           </nav>
       </div><!-- /.container -->

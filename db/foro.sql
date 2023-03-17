@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Mar 16, 2023 at 09:21 PM
+-- Generation Time: Mar 17, 2023 at 08:30 PM
 -- Server version: 5.7.39
 -- PHP Version: 8.2.0
 
@@ -33,6 +33,15 @@ CREATE TABLE `categories` (
   `cat_description` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `categories`
+--
+
+INSERT INTO `categories` (`cat_id`, `cat_name`, `cat_description`) VALUES
+(1, 'Sistemas Operativos', 'Todo lo referente a los distintos sistemas operativos'),
+(2, 'Inteligencia Artificial', 'Debates, Utilidades, Novedades sobre la IA más actual'),
+(3, 'Lenguajes', 'Java, Python, PHP, C++ ... y muchos más');
+
 -- --------------------------------------------------------
 
 --
@@ -47,6 +56,13 @@ CREATE TABLE `posts` (
   `post_by` int(8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `posts`
+--
+
+INSERT INTO `posts` (`post_id`, `post_content`, `post_date`, `post_topic`, `post_by`) VALUES
+(1, 'Para crear un instalador de W10 desde USB, podemos utilizar la herramienta gratuita de Microsoft. Microsoft Developer Tools. Y así poder crear una imagen de W10 a medida de nuestras necesidades.\r\n¿Alguien conoce más sistemas?', '2023-03-01 19:34:16', 1, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -56,10 +72,16 @@ CREATE TABLE `posts` (
 CREATE TABLE `topics` (
   `topic_id` int(8) NOT NULL,
   `topic_subject` varchar(50) NOT NULL,
-  `topic_date` datetime NOT NULL,
   `topic_cat` int(8) NOT NULL,
   `topic_by` int(8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `topics`
+--
+
+INSERT INTO `topics` (`topic_id`, `topic_subject`, `topic_cat`, `topic_by`) VALUES
+(1, 'Instalación W10 desde USB', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -71,9 +93,17 @@ CREATE TABLE `users` (
   `user_id` int(8) NOT NULL,
   `user_name` varchar(20) NOT NULL,
   `user_password` varchar(20) NOT NULL,
-  `user_date` datetime NOT NULL,
   `user_level` int(2) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`user_id`, `user_name`, `user_password`, `user_level`) VALUES
+(1, 'Juan Senen', '1234', 0),
+(2, 'Pablo', '1234', 1),
+(3, 'Ana', '1234', 2);
 
 --
 -- Indexes for dumped tables
@@ -115,25 +145,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `cat_id` int(8) NOT NULL AUTO_INCREMENT;
+  MODIFY `cat_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `post_id` int(8) NOT NULL AUTO_INCREMENT;
+  MODIFY `post_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `topics`
 --
 ALTER TABLE `topics`
-  MODIFY `topic_id` int(8) NOT NULL AUTO_INCREMENT;
+  MODIFY `topic_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(8) NOT NULL AUTO_INCREMENT;
+  MODIFY `user_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
