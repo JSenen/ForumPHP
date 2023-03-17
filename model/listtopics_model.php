@@ -1,9 +1,9 @@
 <?php
-function listTopics($dbh){
+function listTopics($dbh,$id){
   //Recibimos la conexión desde el controller
   try {
       //configuramos la consulta a la base de datos
-      $stmt = $dbh->prepare('SELECT topic_id, topic_subject, topic_by FROM topics');
+      $stmt = $dbh->prepare("SELECT topic_id, topic_subject, topic_by FROM topics WHERE topic_cat = '$id'");
       $stmt->execute();
   
       $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);

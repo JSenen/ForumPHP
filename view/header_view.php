@@ -22,7 +22,6 @@
             </button>
             <ul id="menu">
               <li><a href="indexCategory.php" class="on" aria-current="page">Categorias</a></li>
-              <li><a href="indexTopics.php" class="on" aria-current="page">Temas</a></li>
             </ul>
           </nav>
       </div><!-- /.container -->

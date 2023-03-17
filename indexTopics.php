@@ -1,5 +1,8 @@
 <?php
 
+// Initialize variables
+$id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT); // Recibimos la id de la categoria y validamos int
+
 define ('CONTROLLER_FOLDER',"controller/" );  //Directorio donde definimos los controladores
 define ('DEFAULT_CONTROLLER',"topic");     //Controlador por defecto
 define ('DEFAULT_ACTION',"iniTopic");      //Accion por defecto
@@ -24,7 +27,7 @@ else
 
 //Si action es una función, ejecutamos el script
 if ( is_callable ($action))
-  $action();
+  $action($id);
 else
   die ("La accion requerida no existe 404 not found");
 

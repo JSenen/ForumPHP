@@ -24,8 +24,9 @@ function listCategory($dbh){
           </tr>
           <?php foreach ($resultado as $category) { ?>
             <tr>
-              <td><strong><?= $category['cat_name'] ?></strong></td>
+              <td><a href="indexTopics.php?id=<?= $category['cat_id'] ?>"><strong><?= $category['cat_name'] ?></strong></a></td>
               <td><strong><?= $category['cat_description'] ?></strong></td>
+              
               <td><a href="#<?= $category['cat_id'] ?>"   
                     class="btn btn-primary">Edit</a></td>
               <td><a href="#<?= $category['cat_id'] ?>"
