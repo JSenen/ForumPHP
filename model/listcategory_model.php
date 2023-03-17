@@ -3,22 +3,34 @@ function listCategory($dbh){
   //Recibimos la conexión desde el controller
   try {
       //configuramos la consulta a la base de datos
-      $stmt = $dbh->prepare('SELECT cat_name, cat_description FROM categories');
+      $stmt = $dbh->prepare('SELECT cat_id, cat_name, cat_description FROM categories');
       $stmt->execute();
   
       $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-      // Con la función htmlspecialchars() se puede convertir caracteres especiales en html
       //Visualizamos el listado de categorias
       ?>        
-          <main class="container grid" id="content">
+      <main class="container" id="content">
+        <section class="header">
+          <h1>Categorias</h1>
+        </section>
+
+        <table class="categories">
+          <tr>
+            <th>Categoria</th>
+            <th>Descripción</th>
+            <th class="edit">Edit</th>
+            <th class="del">Delete</th>
+          </tr>
           <?php foreach ($resultado as $category) { ?>
-              <article class="summary">
-                  <a href="#">
-                      <h2><?= htmlspecialchars($category['cat_name']) ?></h2> 
-                      <p><?= htmlspecialchars($category['cat_description']) ?></p>
-                  </a>
-              </article>
+            <tr>
+              <td><strong><?= $category['cat_name'] ?></strong></td>
+              <td><strong><?= $category['cat_description'] ?></strong></td>
+              <td><a href="#<?= $category['cat_id'] ?>"   
+                    class="btn btn-primary">Edit</a></td>
+              <td><a href="#<?= $category['cat_id'] ?>"
+                    class="btn btn-danger">Delete</a></td>
+            </tr>
           <?php } ?>
       </main>
       <?php
