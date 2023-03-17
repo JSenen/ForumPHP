@@ -99,24 +99,6 @@ nav li {
 /**********************/
 /* 3: HEADER + FOOTER */
 /**********************/
-
-.container_banner{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  background-image: url(../view/img/Banner.jpg);
-  background-size:cover;
-  background-attachment: fixed;
-  background-position: center;  
-  
-}
-.container_banner_text {
-  position: absolute;
-  font-size: 6rem;
-  text-align: center;
-  color: #e1e0de;
-}
 header  {
   background: #e9e8e6;
   min-height: 50px;
@@ -133,7 +115,7 @@ header div.logo {
 }
 
 header div.logo img {
-  max-width: 10240px;
+  max-width: 360px;
   max-height: 50px;
   margin: 5px 0px;
 }
@@ -154,6 +136,43 @@ header button:hover {
   cursor: pointer;
 }
 
+header nav ul {
+  padding: .5rem 0 0.1rem 0;
+  margin: 0;
+  clear: left;
+}
+
+header nav li {
+  list-style-type: none;
+  display: inline-block;
+  padding-right: .5em;
+}
+
+.js header nav ul {
+  display: none;
+}
+
+.js header nav li {
+  margin-bottom: 1em;
+  display: block;
+}
+
+.js header nav button {
+  display: block;
+}
+
+header nav ul.is-active {
+  display: block;
+}
+
+nav .icon-search {
+  display: none;
+}
+
+nav .search-text {
+  display: inline-block;
+  padding-bottom: 10px;
+}
 
 .skip-link {
   position: fixed;
@@ -171,6 +190,73 @@ header button:hover {
   top: 0;
 }
 
+@media (min-width: 760px) {
+  header > div.container {
+    display: flex;
+  }
+
+  header .logo {
+    flex: 1;
+  }
+
+  header nav {
+    flex: 2;
+  } 
+
+  header button {
+    display: none;
+  }
+
+  header div.logo img {
+    max-width: 93%;
+    max-height: 75px;
+  }
+
+  header nav li {
+    padding-right: 0;
+    font-size: 1.2em;
+  }
+
+  .js header nav ul {
+    display: block;
+    text-align: right;
+  }
+
+  .js header nav li {
+    display: inline-block;
+    margin: 0;
+  }
+
+  .js header nav button {
+    display: none;
+  }
+
+  header nav li::after {
+    content: " / ";
+    font-weight: normal;
+    color: #a39f9c;
+  }
+
+  header nav li:last-child::after,
+  header nav li:nth-last-child(2)::after {
+    content: "";
+  }
+
+  .header-admin nav li:nth-last-child(2)::after {
+    content: " / ";
+  }
+
+  nav .icon-search {
+    display: inline-block;
+    padding-left: .5rem;
+    color: #a39f9c;
+  }
+
+  nav .search-text {
+    display: none;
+  }
+
+}
 
 footer {
   clear: both;
@@ -188,7 +274,6 @@ footer {
   margin: 0 auto 0 auto;
   max-width: 94%;
 }
-
 
 @media (min-width: 1240px) {
   .container {
@@ -482,144 +567,164 @@ nav.pagination {
 }
 
 
-/***************************
-NAVBAR DROPDOWN
-***************************/
-/* Clearing floats */
-.cf:before,
-.cf:after {
-  content: " ";
-  display: table;
+/* ALERTS */
+.alert {
+  background: #fff;
+  border: 1px solid transparent;
+  padding: .75rem 1.25rem;
+  margin-bottom: 1rem;
+  border-radius: .25rem;
 }
 
-.cf:after {
-  clear: both;
+.alert-danger {
+  color: #a62d2d;
+  background: #f8d7da;
+  border-color: #a62d2d;
 }
 
-.cf {
-  *zoom: 1;
+.alert-success {
+  color: #155724;
+  background: #d1e7dd;
+  border-color: #c3e6cb;
 }
 
-/* Mini reset, no margins, paddings or bullets */
-.menu,
-.submenu {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+/**********************/
+/* 6: ADMIN           */
+/**********************/
+.admin h1 {
+  margin-bottom: 1em;
 }
 
-/* Main level */
-.menu {			
-  margin: 50px auto;
-  width: 800px;
-  /* http://www.red-team-design.com/horizontal-centering-using-css-fit-content-value */
-  width: -moz-fit-content;
-  width: -webkit-fit-content;
-  width: fit-content;	
+table {
+    width: 100%;
+    margin-top: 2rem;
+    table-layout: fixed;
+    background-color: transparent;
+    border-collapse: collapse;
 }
 
-.menu > li {
-  background: #34495e;
-  float: left;
-  position: relative;
-  transform: skewX(25deg);
+table.admin, 
+table.categories {
+  max-width: 500px;
+  margin: 0 auto;
 }
 
-.menu a {
-  display: block;
-  color: #fff;
-  text-transform: uppercase;
+th {
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    font-weight: normal;
+    border-bottom: 1px solid #d6d6d6;
+    padding: .75rem;
+    vertical-align: top;
+}
+
+td {
+    padding: .75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}
+
+td img {
+    max-width: 200px;
+}
+
+p.alt {
+  margin-top: .5em;
+}
+
+@media (min-width: 860px) {
+  th.edit, th.view {
+    width: 5em;
+  }
+  th.create,
+  th.del,
+  th.pub {
+    width: 7em;
+  }
+  th.created {
+    width: 9em;
+  }
+}
+
+.image-placeholder {
+  background-color: #d6d6d6;
+  background-image: url(../uploads/blank.png);
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  width: 100%;
+  min-height: 23.5em;
+  text-align: center;
+  padding: 1em;
+  color: #333;
+}
+
+/**********************/
+/* 7: ICONS           */
+/**********************/
+
+@font-face {
+  font-family: 'icons';
+  src: url('../font/icons/icons.eot?29469745');
+  src: url('../font/icons/icons.eot?29469745#iefix') format('embedded-opentype'),
+  url('../font/icons/icons.woff2?29469745') format('woff2'),
+  url('../font/icons/icons.woff?29469745') format('woff'),
+  url('../font/icons/icons.ttf?29469745') format('truetype'),
+  url('../font/icons/icons.svg?29469745#icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "icons";
+  font-style: normal;
+  font-weight: normal;
+  speak: never;
+  display: inline-block;
   text-decoration: none;
-  font-family: Arial, Helvetica;
-  font-size: 14px;
-}		
-
-.menu li:hover {
-  background: #e74c3c;
-}		
-
-.menu > li > a {
-  transform: skewX(-25deg);
-  padding: 1em 2em;
+  width: 1em;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Dropdown */
-.submenu {
-  position: absolute;
-  width: 200px;
-  left: 50%; margin-left: -100px;
-  transform: skewX(-25deg);
-  transform-origin: left top;
+.icon-menu:before { content: '\f0c9'; } 
+.icon-search:before { content: '\e803'; } 
+.icon-comment:before { content: '\e800'; } 
+.icon-comment-empty:before { content: '\f0e5'; } 
+.icon-heart:before { content: '\e801'; } 
+.icon-heart-empty:before { content: '\e802'; } 
+
+/* Same styles as .btn 
+   Repeated here as adding them to existing .btn class 
+   can prevent rules for button being processed. */
+input[type=file]::-webkit-file-upload-button {
+  color: #fff;
+  background: #295073;
+  display: inline-block;
+  width: min-content;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  padding: .1rem .5rem;
+  line-height: 1.5;
+  vertical-align: middle;
+  text-transform: uppercase;
 }
-
-.submenu li {
-  background-color: #34495e;
-  position: relative;
-  overflow: hidden;		
-}						
-
-.submenu > li > a {
-  padding: 1em 2em;			
-}
-
-.submenu > li::after {
-  content: '';
-  position: absolute;
-  top: -125%;
-  height: 100%;
-  width: 100%;			
-  box-shadow: 0 0 50px rgba(0, 0, 0, .9);			
-}		
-
-/* Odd stuff */
-.submenu > li:nth-child(odd){
-  transform: skewX(-25deg) translateX(0);
-}
-
-.submenu > li:nth-child(odd) > a {
-  transform: skewX(25deg);
-}
-
-.submenu > li:nth-child(odd)::after {
-  right: -50%;
-  transform: skewX(-25deg) rotate(3deg);
-}				
-
-/* Even stuff */
-.submenu > li:nth-child(even){
-  transform: skewX(25deg) translateX(0);
-}
-
-.submenu > li:nth-child(even) > a {
-  transform: skewX(-25deg);
-}
-
-.submenu > li:nth-child(even)::after {
-  left: -50%;
-  transform: skewX(25deg) rotate(3deg);
-}
-
-/* Show dropdown */
-.submenu,
-.submenu li {
-  opacity: 0;
-  visibility: hidden;			
-}
-
-.submenu li {
-  transition: .2s ease transform;
-}
-
-.menu > li:hover .submenu,
-.menu > li:hover .submenu li {
-  opacity: 1;
-  visibility: visible;
-}		
-
-.menu > li:hover .submenu li:nth-child(even){
-  transform: skewX(25deg) translateX(15px);			
-}
-
-.menu > li:hover .submenu li:nth-child(odd){
-  transform: skewX(-25deg) translateX(-15px);			
+input[type=file]::file-selector-button {
+  color: #fff;
+  background: #295073;
+  display: inline-block;
+  width: min-content;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  padding: .1rem .5rem;
+  line-height: 1.5;
+  vertical-align: middle;
+  text-transform: uppercase;
 }
