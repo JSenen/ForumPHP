@@ -2,7 +2,7 @@
 
 define ('CONTROLLER_FOLDER',"controller/" );      //Directorio donde definimos los controladores
 define ('DEFAULT_CONTROLLER',"category");        //Controlador por defecto
-define ('DEFAULT_ACTION',"iniForum");       //Accion por defecto
+define ('DEFAULT_ACTION',"iniCategory");       //Accion por defecto
 
 //Obtenemos el controlador. Si no por defecto
 $controller = DEFAULT_CONTROLLER;

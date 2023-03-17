@@ -17,6 +17,7 @@ function getConection() {
     } catch (PDOException $e) {
         echo $e->getMessage();
     }
+    return $dbh;
 }
 
 function getLogin(){
@@ -27,6 +28,41 @@ function getLogin(){
             return $result = 'invalida user';
         }
     }
+}
+
+function listCategory($dbh){
+    getConection();
+    try {
+        //configuramos el prepared statement
+        $stmt = $dbh->prepare('SELECT * FROM categories');
+        $stmt->execute();
+    
+        $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
+        /* Visualizamos los datos en una tabla
+        Primero mostramos los links necesarios para ver sin paginar o
+        paginados. El par�metro ?page, nos indicar� al tener valor 1 que es
+        primera p�gina de resultados posibles.
+        */
+        echo "<p><b>Ver todos</b> | <a href='viewpaginated.php?page=1'>Ver paginados</a></p>";
+        echo "<table border='1' cellpadding='10'>";
+        echo "<tr> <th>ID</th> <th>Nombre</th> <th>Apellido</th> <th></th><th></th></tr>";
+    
+        foreach ($resultado as $categories) {
+            // salida de contenidos de cada columna en una fila de la tabla
+            echo "<tr>";
+            echo '<td>' . $categories['cat_name'] . '</td>';
+            echo '<td>' . $categories['cat_description'] . '</td>';
+            echo "</tr>";
+        }
+    
+        // terminamos la tabla
+        echo "</table>";
+    
+    } catch (PDOException $e) {
+        echo "ERROR: " . $e->getMessage();
+    }
+   
 }
 
 ?>

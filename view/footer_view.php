@@ -9,3 +9,6 @@
 
 </footer>
 <!-- Footer -->
+  
+</body>
+</html>
