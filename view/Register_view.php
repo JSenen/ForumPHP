@@ -1,10 +1,10 @@
 <?php
-include('header_view.php'); 
+include('header_view.php');
 ?>
 <main class="container" id="content">
 
 <section class="header">
-  <h1>Log in</h1>
+  <h1>Nuevo Registro</h1>
 </section>
   <form method="POST" action="" class="form-login">
 
@@ -13,15 +13,18 @@ include('header_view.php');
       <input type="text" name="name" id="nombre" value="" class="form-control">
       <div class="errors"></div>
     </div>
-
+    <div class="form-group">
+      <label for="email">Email </label>
+      <input type="text" name="email" id="email" value="" class="form-control">
+      <div class="errors"></div>
+    </div>
     <div class="form-group">
       <label for="password">Password </label>
       <input type="password" name="password" id="password" class="form-control">
       <div class="errors"></div>
     </div>
 
-    <input type="submit" class="btn btn-primary" value="Log in"><br>
-    <p><a href="indexRegister.php">Nuevo Registro</a></p>
+    <input type="submit" class="btn btn-primary" name="register" value="Registrarse"><br>
   </form>
   </main>
-
+  
