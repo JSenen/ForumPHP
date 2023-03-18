@@ -1,6 +1,6 @@
 <?php
 function listTopics($dbh,$id){
-  session_start();
+  
   //Recibimos la conexión desde el controller
   try {
       //configuramos la consulta a la base de datos
@@ -21,7 +21,7 @@ function listTopics($dbh,$id){
             <th>Temas</th>
             <?php
             //Comprobación si hay sesion iniciada por un invitado(sin registrar)  o usuario
-            if(!isset($_SESSION['user_level']) || $_SESSION['user_level'] == 1 )
+            if(!isset($_SESSION['user_level']) || $_SESSION['user_level'] !='0' )
             {
               //Si no se ha iniciado session o solo es usuario normal.
               //Mostrará solo las categorias sin opción de editar o borrar
@@ -30,19 +30,17 @@ function listTopics($dbh,$id){
                include ('./view/MemberTopic_view.php');
                } 
               
-            } else 
-            { 
+            } else { 
               
             //Si usuario es administrador se mostraran opciones de edicion y borrado
-            include('./view/AdminOptions_view.php');
+             include('./view/AdminOptions_view.php');
               
              ?>
           </tr>
-          <?php foreach ($temas as $topic)
-           { 
-            include ('./view/AdminTopic_view.php'); 
-           }
-            }?>
+          <?php foreach ($temas as $topic) { 
+            include ('./view/AdminTopic_view.php');
+            
+           } } ?>
       </main>
       <?php  
   } catch (PDOException $e) {

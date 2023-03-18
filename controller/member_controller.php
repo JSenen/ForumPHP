@@ -7,6 +7,7 @@ function iniMember(){
   include('view/MemberHome_view.php');       //Llamamos a la vista del listado de categorias de miembros
   include('model/listcategory_model.php');  //LLamamos al modelo que gestiona el listado de categorias
   listCategory($dbh);        //Llamada a la funcion listar categorias del modelo anterior y pasamos conexión
+  include('view/footer_view.php');
 }
 
 function closeSession(){

@@ -21,7 +21,7 @@ function listCategory($dbh){
             <th>Descripción</th>
             <?php
             //Comprobación si hay sesion iniciada por un invitado(sin registrar)  o usuario
-            if(!isset($_SESSION['user_level']) || $_SESSION['user_level'] !=0 )
+            if(!isset($_SESSION['user_level']) || $_SESSION['user_level'] !='0' )
             {
               //Si no se ha iniciado session o solo es usuario normal.
               //Mostrará solo las categorias sin opción de editar o borrar
