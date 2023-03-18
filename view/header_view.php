@@ -12,9 +12,12 @@
 <body>	
     <header>
       <div class="container">
-          
+        
             <div class="logo">
               <a href="index.php"><img src="img/logo.png" alt="Creative Folk"></a>
+            </div>
+            <div>
+              <h3>Bienvenido</h3>
             </div>
           <nav>
             <ul id="menu">
