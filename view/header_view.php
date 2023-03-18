@@ -20,7 +20,7 @@
             <h3>Bienvenido<?php
             
               //Dependiendo del nivel de usuario podra acceder a distintas funciones
-              if(!isset($_SESSION['user_level']) || $_SESSION['user_level']!=0){
+              if(!isset($_SESSION['user_level']) || $_SESSION['user_level']!= 0){
                 $_SESSION['user_level'] = 3;
                 $_SESSION['user_name'] = 'Invitado';
                 
