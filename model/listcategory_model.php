@@ -7,7 +7,7 @@ function listCategory($dbh){
       $stmt->execute();
   
       $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
+      
       //Visualizamos el listado de categorias
       ?>        
       <main class="container" id="content">
@@ -40,7 +40,7 @@ function listCategory($dbh){
   } catch (PDOException $e) {
       echo "ERROR: " . $e->getMessage();
   }
- 
+  return $resultado;
 }
 
 
