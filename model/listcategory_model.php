@@ -21,18 +21,21 @@ function listCategory($dbh){
             <th>Descripción</th>
             <?php
             //Comprobación si hay sesion iniciada por un invitado(sin registrar)  o usuario
-            if(!isset($_SESSION['user_level']) || $_SESSION['user_level'] == 1){
+            if(!isset($_SESSION['user_level']) || $_SESSION['user_level'] !=0 )
+            {
               //Si no se ha iniciado session o solo es usuario normal.
               //Mostrará solo las categorias sin opción de editar o borrar
-               foreach ($resultado as $category) { 
+               foreach ($resultado as $category) 
+               { 
                include ('./view/MemberCategory_view.php');
                } 
               
-            } elseif($_SESSION['user_level'] == 0 ){ {
+            } else { 
+              
             //Si usuario es administrador se mostraran opciones de edicion y borrado
              include('./view/AdminOptions_view.php');
               
-            } ?>
+             ?>
           </tr>
           <?php foreach ($resultado as $category) { 
             include ('./view/AdminCategory_view.php');
