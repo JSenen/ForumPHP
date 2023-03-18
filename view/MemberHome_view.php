@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
@@ -12,20 +13,38 @@
 <body>	
     <header>
       <div class="container">
-        
-            <div class="logo">
+        <?php
+        session_start();
+        if(!isset($_SESSION['user_name'])){
+          //Si no hay usuario activo vuelve al index generico
+          header('location: ./index.php');
+          
+        } else {
+          ?>
+           <div class="logo">
               <a href="index.php"><img src="img/logo.png" alt="Creative Folk"></a>
             </div>
             <div>
-              <h3>Bienvenido</h3>
+              <h3>Bienvenido<?php
+              //Dependiendo del nivel de usuario podra acceder a distintas funciones
+                echo '       '.$_SESSION['user_name'];
+                if($_SESSION['user_level'] == 0 ){
+                echo '      (Administrador)';
+              } elseif ($_SESSION['user_level'] == 1) {
+                echo '      (Usuario)';
+              }
+              ?></h3>
             </div>
           <nav>
             <ul id="menu">
               <li><a href="indexCategory.php" class="on" aria-current="page">Categorias</a></li>
-              <li><a href="indexLogin.php" class="on" aria-current="page">Login/Register</a></li>
+              <li><a href="closeSession.php" class="on" aria-current="page">Login Out</a></li>
             </ul>
           </nav>
       </div><!-- /.container -->
     </header>
-  
+    <?php
+        }
+      ?>  
+           
   
