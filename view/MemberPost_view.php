@@ -1,4 +1,4 @@
 <tr>
   <td><?= $post['post_content'] ?></td>
-  <td><?= $post['post_date'] ?></td>
+  <td style="font-size:75%;"><?= $post['post_date'] ?></td>
 </tr>

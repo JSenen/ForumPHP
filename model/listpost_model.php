@@ -21,12 +21,27 @@ function listPost($dbh,$id){
             <th>Comentario</th>
             <th>Fecha</th>
             <?php
+            //Comprobación si hay sesion iniciada por un invitado(sin registrar)  o usuario
+            if(!isset($_SESSION['user_level']) || $_SESSION['user_level'] !='0' )
+            {
+              //Si no se ha iniciado session o solo es usuario normal.
+              //Mostrará solo las categorias sin opción de editar o borrar
                foreach ($comentarios as $post) 
                { 
                include ('./view/MemberPost_view.php');
                } 
-            ?>
+              
+            } else { 
+              
+            //Si usuario es administrador se mostraran opciones de edicion y borrado
+             include('./view/AdminOptions_view.php');
+              
+             ?>
           </tr>
+          <?php foreach ($comentarios as $post) { 
+            include ('./view/AdminPost_view.php');
+            
+           } } ?>
       </main>
       <?php  
   } catch (PDOException $e) {
