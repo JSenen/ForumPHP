@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 // Initialize variables
 $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT); // Recibimos la id de la categoria y validamos int
 

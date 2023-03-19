@@ -12,7 +12,7 @@
 <body>	
     <header>
       <div class="container">
-        
+            
             <div class="logo">
               <a href="index.php"><img src="img/logo.png" alt="Creative Folk"></a>
             </div>
@@ -20,14 +20,14 @@
             <h3>Bienvenido<?php
             
               //Dependiendo del nivel de usuario podra acceder a distintas funciones
-              if(!isset($_SESSION['user_level']) || $_SESSION['user_level']!= 0){
+              if(!isset($_SESSION['user_level'])){
                 $_SESSION['user_level'] = 3;
                 $_SESSION['user_name'] = 'Invitado';
                 
-              }elseif($_SESSION['user_level'] == 0 ){
-                echo '      (Administrador)';
-              }elseif($_SESSION['user_level'] == 1) {
-                echo '      (Usuario)';
+              }elseif( $_SESSION['user_level'] == 0 ){
+                echo '-(Administrador)-';
+              }elseif( $_SESSION['user_level'] == 1 ) {
+                echo '-(Usuario)-';
               }
               echo '       '.$_SESSION['user_name'];
               ?></h3>
