@@ -417,13 +417,13 @@ button, input, optgroup, select, textarea {
 }
 
 .btn-secondary {
-  color: #333;
-  background: #e1e0de;
+  color: #155724;
+  background: #155724;
   border-color: #e9e8e6;
 }
 .btn-secondary:hover {
-  color: #fff;
-  background: #717170;
+  color: #52954f;
+  background: #52954f;
   border-color: #717170;
 }
 
