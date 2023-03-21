@@ -1,12 +1,15 @@
 <?php
 function listTopics($dbh,$id){
-  //Recibimos la conexión desde el controller
+  
+  //Recibimos la conexión desde el controller al igual que la $id de la categoria a la que corresponden
   try {
-      //configuramos la consulta a la base de datos
-      $stmt = $dbh->prepare("SELECT topic_id, topic_subject, topic_by FROM topics WHERE topic_cat = '$id'");
+      //configuramos la consulta a la base de datos para evitar el ataque inyeccion SQL por medio
+      // de marcadores de posicion y bindParam
+      $stmt = $dbh->prepare("SELECT topic_id, topic_subject, topic_by FROM topics WHERE topic_cat = :id ");
+      $stmt->bindParam(":id", $id, PDO::PARAM_INT);
       $stmt->execute();
   
-      $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
+      $temas = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
       //Visualizamos el listado de categorias
       ?>        
@@ -18,26 +21,19 @@ function listTopics($dbh,$id){
         <table class="categories">
           <tr>
             <th>Temas</th>
-            <th class="edit">Edit</th>
-            <th class="del">Delete</th>
-          </tr>
-          <?php foreach ($resultado as $topic) { ?>
-            <tr>
-              <td><a href="indexPost.php?id=<?= $topic['topic_id'] ?>"><strong><?= $topic['topic_subject'] ?></strong></td>
-              <td><a href="#<?= $topic['topic_id'] ?>"   
-                    class="btn btn-primary">Edit</a></td>
-              <td><a href="#<?= $topic['topic_id'] ?>"
-                    class="btn btn-danger">Delete</a></td>
-            </tr>
-          <?php } ?>
+            <?php
+                //Si no se ha iniciado session o solo es usuario normal.
+              //Mostrará solo las categorias sin opción de editar o borrar
+               foreach ($temas as $topic) 
+               { 
+               include ('./view/MemberTopic_view.php');
+               } 
+          ?>
       </main>
-      <?php
-     // }
-  
+      <?php  
   } catch (PDOException $e) {
       echo "ERROR: " . $e->getMessage();
   }
- 
 }
 
 

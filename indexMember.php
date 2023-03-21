@@ -1,5 +1,4 @@
 <?php
-
 define ('CONTROLLER_FOLDER',"controller/" );  //Directorio donde definimos los controladores
 define ('DEFAULT_CONTROLLER',"member");     //Controlador por defecto
 define ('DEFAULT_ACTION',"iniMember");         //Accion por defecto

@@ -281,6 +281,10 @@ footer {
   margin: 0 auto 0 auto;
   max-width: 94%;
 }
+.container-total{
+  margin: auto;
+  max-width: fit-content;
+}
 
 @media (min-width: 1240px) {
   .container {
@@ -616,6 +620,7 @@ table.categories {
   max-width: 500px;
   margin: 0 auto;
 }
+
 
 th {
     text-align: left;

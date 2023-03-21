@@ -15,11 +15,11 @@
       <div class="container">
         <?php
         session_start();
-        if(!isset($_SESSION['user_name'])){
+        if(!isset($_SESSION['user_level'])){
           //Si no hay usuario activo vuelve al index generico
           header('location: ./index.php');
           
-        } else {
+        } else{
           ?>
            <div class="logo">
               <a href="index.php"><img src="img/logo.png" alt="Creative Folk"></a>
@@ -38,7 +38,7 @@
           <nav>
             <ul id="menu">
               <li><a href="indexCategory.php" class="on" aria-current="page">Categorias</a></li>
-              <li><a href="closeSession.php" class="on" aria-current="page">Login Out</a></li>
+              <li><a href="closeSession.php" class="off" aria-current="page">Login Out</a></li>
             </ul>
           </nav>
       </div><!-- /.container -->

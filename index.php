@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 define ('CONTROLLER_FOLDER',"controller/" );  //Directorio donde definimos los controladores
 define ('DEFAULT_CONTROLLER',"category");     //Controlador por defecto
 define ('DEFAULT_ACTION',"iniForum");         //Accion por defecto

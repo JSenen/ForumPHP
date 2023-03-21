@@ -1,8 +1,8 @@
 <?php
-session_start();
+
 define ('CONTROLLER_FOLDER',"controller/" );  //Directorio donde definimos los controladores
-define ('DEFAULT_CONTROLLER',"category");     //Controlador por defecto
-define ('DEFAULT_ACTION',"iniCategory");      //Accion por defecto
+define ('DEFAULT_CONTROLLER',"member");     //Controlador por defecto
+define ('DEFAULT_ACTION',"closeSession");      //Accion por defecto
 
 //Obtenemos el controlador. Si no por defecto
 $controller = DEFAULT_CONTROLLER;
@@ -27,6 +27,3 @@ if ( is_callable ($action))
   $action();
 else
   die ("La accion requerida no existe 404 not found");
-
-
-
