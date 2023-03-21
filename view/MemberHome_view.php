@@ -38,7 +38,7 @@
           <nav>
             <ul id="menu">
               <li><a href="indexCategory.php" class="on" aria-current="page">Categorias</a></li>
-              <li><a href="closeSession.php" class="off" aria-current="page">Login Out</a></li>
+              <li><a href="closeSession.php" class="off" aria-current="page">Sign Out</a></li>
             </ul>
           </nav>
       </div><!-- /.container -->

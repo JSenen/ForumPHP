@@ -30,6 +30,18 @@ function listTopics($dbh,$id){
                } 
           ?>
       </main>
+      <section class="header">
+          
+          <?php
+          //Con usuario administrador (Level 0) aparecera boton añadir tema
+          if($_SESSION['user_level'] == 0) {
+          ?>
+          <a href="#<?= $category['cat_id'] ?>" class="btn btn-secondary">Añadir</a>
+          <?php
+          }
+           ?>
+         
+         </section>
       <?php  
   } catch (PDOException $e) {
       echo "ERROR: " . $e->getMessage();
