@@ -7,7 +7,7 @@ function listPost($dbh,$id){
       $stmt = $dbh->prepare("SELECT post_id, post_content, post_date, post_by FROM posts WHERE post_topic = :id");
       $stmt->bindParam(":id", $id, PDO::PARAM_INT);
       $stmt->execute();
-  
+      
       $comentarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
       //Visualizamos el listado de comentarios
@@ -24,7 +24,7 @@ function listPost($dbh,$id){
             <th>Usuario</th>
             <?php
               //Si no se ha iniciado session o solo es usuario normal.
-              //Mostrará solo las categorias sin opción de editar o borrar
+              //Mostrará solo llos temas sin opción de editar o borrar
                foreach ($comentarios as $post) 
                { 
                include ('./view/MemberPost_view.php');
@@ -32,6 +32,19 @@ function listPost($dbh,$id){
               
           ?>
       </main>
+      <section class="header">
+          
+            <?php
+            //Con usuario administrador (Level 0) o usuario registrado (Level 1) aparecera boton añadir comentario
+            if($_SESSION['user_level'] == 0 || $_SESSION['user_level'] == 1) {
+            ?>
+            <!-- Pasamos el $id del tema al que pertenece el comentario -->
+            <a href="indexAddPost.php?id=<?= $id ?>" class="btn btn-secondary">Añadir</a>
+            <?php
+            }
+             ?>
+           
+           </section>
       
       <?php  
   } catch (PDOException $e) {

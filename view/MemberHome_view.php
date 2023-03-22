@@ -22,7 +22,7 @@
         } else{
           ?>
            <div class="logo">
-              <a href="index.php"><img src="img/logo.png" alt="Creative Folk"></a>
+              <a href="index.php"><img src="img/logo.png" alt="logo"></a>
             </div>
             <div>
               <h3>Bienvenido<?php
