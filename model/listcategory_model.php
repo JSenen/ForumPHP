@@ -38,7 +38,7 @@ function listCategory($dbh){
             //Con usuario administrador (Level 0) aparecera boton añadir categoria
             if($_SESSION['user_level'] == 0) {
             ?>
-            <a href="#<?= $category['cat_id'] ?>" class="btn btn-secondary">Añadir</a>
+            <a href="indexAddCat.php" class="btn btn-secondary">Añadir</a>
             <?php
             }
              ?>

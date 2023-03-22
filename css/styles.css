@@ -417,14 +417,15 @@ button, input, optgroup, select, textarea {
 }
 
 .btn-secondary {
-  color: #155724;
+  color: #fff;
   background: #155724;
   border-color: #e9e8e6;
+  
 }
 .btn-secondary:hover {
-  color: #52954f;
-  background: #52954f;
-  border-color: #717170;
+  color: #fff;
+  background: #3abc67f5;
+  cursor: pointer;
 }
 
 .btn-danger {
