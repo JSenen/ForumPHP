@@ -36,7 +36,7 @@
             <ul id="menu">
               <li><a href="indexCategory.php" class="on" aria-current="page">Categorias</a></li>
               <li><a href="indexLogin.php" class="on" aria-current="page">Login</a></li>
-              <li><a href="indexLoginOut.php" class="on" aria-current="page">Logo Out</a></li>
+              <li><a href="indexLoginOut.php" class="on" aria-current="page">Sign Out</a></li>
             </ul>
           </nav>
       </div><!-- /.container -->

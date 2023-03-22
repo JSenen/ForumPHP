@@ -17,7 +17,7 @@ function listPost($dbh,$id){
           <h1>Comentarios</h1>
         </section>
 
-        <table class="categories">
+        <table>
         <tr>
             <th>Comentario</th>
             <th>Fecha</th>
@@ -32,6 +32,7 @@ function listPost($dbh,$id){
               
           ?>
       </main>
+      
       <?php  
   } catch (PDOException $e) {
       echo "ERROR: " . $e->getMessage();
