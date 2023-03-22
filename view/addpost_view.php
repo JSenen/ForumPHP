@@ -5,7 +5,7 @@
 
           <div class="form-group">
             <label for="name">Comentario: </label>
-            <input type="text" name="post_content" id="post_content" class="form-control">
+            <textarea name="post_content" id="post_content" class="form-control"></textarea>
           </div>
 
     <input type="submit" value="Grabar" name="addpost"class="btn btn-primary btn-save">
