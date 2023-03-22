@@ -34,9 +34,10 @@ function listTopics($dbh,$id){
           
           <?php
           //Con usuario administrador (Level 0) aparecera boton añadir tema
-          if($_SESSION['user_level'] == 0) {
+          if($_SESSION['user_level'] == 0 || $_SESSION['user_level'] == 1) {
           ?>
-          <a href="#<?= $category['cat_id'] ?>" class="btn btn-secondary">Añadir</a>
+          <!-- Para ñadir el tema pasamos el id de la categoria -->
+          <a href="indexAddTopic.php?id=<?= $id ?>" class="btn btn-secondary">Añadir</a>
           <?php
           }
            ?>
