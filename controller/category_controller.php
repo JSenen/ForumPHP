@@ -27,8 +27,8 @@ function addCategory(){
 
 function modCategory($id){
   $conection = new Conecction();
-  $dbh = $conection->getConection();  
-  include('view/MemberHome_view.php');
-  include('view/modcategory_view.php');
-  
+  $dbh = $conection->getConection();
+  include('view/MemberHome_view.php');  
+  include('model/modcategory_model.php');
+  modCat($dbh,$id);
 }
