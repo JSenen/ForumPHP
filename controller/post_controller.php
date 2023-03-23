@@ -17,4 +17,13 @@ function addPost($id){
   addNewPost($dbh,$id);                  //Llamada a la funcion añadir temas. 
 
 }
+
+function modPost($id){
+  //Recogemos la $id del comentario
+  $conection = new Conecction();
+  $dbh = $conection->getConection();       //Realizamos la conexion y la almacenamos en una varible
+  include('view/MemberHome_view.php');  
+  include('model/modpost_model.php');
+  modyPost($dbh,$id);
+}
 ?>
