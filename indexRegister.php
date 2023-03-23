@@ -1,7 +1,7 @@
 <?php
 
 define ('CONTROLLER_FOLDER',"controller/" );  //Directorio donde definimos los controladores
-define ('DEFAULT_CONTROLLER',"register");     //Controlador por defecto
+define ('DEFAULT_CONTROLLER',"login");     //Controlador por defecto
 define ('DEFAULT_ACTION',"addUser");      //Accion por defecto
 
 //Obtenemos el controlador. Si no por defecto
