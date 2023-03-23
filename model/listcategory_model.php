@@ -28,10 +28,11 @@ function listCategory($dbh){
                { 
                include ('./view/MemberCategory_view.php');
                } 
-              
+               
              ?>
             
       </main>
+      
       <section class="header">
           
             <?php
@@ -44,11 +45,13 @@ function listCategory($dbh){
              ?>
            
            </section>
+           <?php
     
-      <?php  
+      
   } catch (PDOException $e) {
       echo "ERROR: " . $e->getMessage();
   }
+  
 }
 
 

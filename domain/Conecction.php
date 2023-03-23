@@ -21,7 +21,8 @@ class Conecction{
     }
     return $dbh;
 }
-function getLogin(){
+function getLogin()
+{
     if ( isset ($_POST['username']) && ($_POST('userpassword'))) {
         if($_POST['username'] == 'admin' && $_POST['userpassword'] == 'admin ') {
             return $result = 'login';
@@ -30,6 +31,7 @@ function getLogin(){
         }
     }
 }
+
 }
 
 

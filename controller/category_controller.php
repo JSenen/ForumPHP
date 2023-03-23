@@ -4,7 +4,8 @@ require_once('./domain/Conecction.php');   //Requerimos la clase Connection
 function iniForum(){                      
   $conection = new Conecction();          //Creamos un objeto conexion
   $conection->getConection();             //Abrimos conexion
-  include('view/header_view.php');
+  include('view/header_view.php');        //llamada a vista 
+  include('view/footer_view.php'); 
 }
 //Funcion para el inicio de la página Categorias
 function iniCategory(){
@@ -13,6 +14,7 @@ function iniCategory(){
   include('view/header_view.php');            //Llamamos a la vista del listado de categorias
   include('model/listcategory_model.php');  //LLamamos al modelo que gestiona el listado de categorias
   listCategory($dbh);                       //Llamada a la funcion listar categorias del modelo anterior y 
+  
 }
 
 function addCategory(){
