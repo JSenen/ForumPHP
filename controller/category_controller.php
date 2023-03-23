@@ -23,5 +23,12 @@ function addCategory(){
   include('model/addcategory_model.php');
   addNewCategory($dbh);
   
-  
+}
+
+function modCategory($id){
+  $conection = new Conecction();
+  $dbh = $conection->getConection();
+  include('view/MemberHome_view.php');  
+  include('model/modcategory_model.php');
+  modCat($dbh,$id);
 }

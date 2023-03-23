@@ -2,7 +2,7 @@
 require('./domain/Conecction.php');       //Llamamos al modelo de conexion PDO
 function iniTopic($id){
 
-    //Recogemos la $id de la categoria para buscar los temas relacionados con ella
+    //Recogemos la $id del tema para buscar los temas relacionados con ella
     $conection = new Conecction();
     $dbh = $conection->getConection();       //Realizamos la conexion y la almacenamos en una varible
     include('view/header_view.php');        //Lamamos a la vista de Temas 
@@ -12,16 +12,22 @@ function iniTopic($id){
 }
 
 function addTopic($id){
-    //Recogemos la $id de la categoria 
+    //Recogemos la $id del tema
     $conection = new Conecction();
     $dbh = $conection->getConection();       //Realizamos la conexion y la almacenamos en una varible
     include('view/MemberHome_view.php');      //Cabecera visible para usuarios registrados
     include('view/addtopic_view.php');
     include('model/addtopic_model.php');
     addNewTopic($dbh,$id);
-    
-    
+}
 
+function modTopic($id){
+    //Recogemos la $id del tema
+    $conection = new Conecction();
+    $dbh = $conection->getConection();       //Realizamos la conexion y la almacenamos en una varible
+    include('view/MemberHome_view.php');  
+    include('model/modtopic_model.php');
+    modTop($dbh,$id);
 }
 
 ?>
