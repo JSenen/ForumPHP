@@ -6,3 +6,11 @@ function checkLogin(){
   require('./model/login_model.php');
   getLogin();
 }
+
+function addUser(){
+  require('./view/Register_view.php');
+  require('./model/register_model.php');
+  addRegister();
+}
+
+?>  
