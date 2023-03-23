@@ -25,6 +25,6 @@ include('header_view.php');
     </div>
 
     <input type="submit" class="btn btn-primary" name="register" value="Registrarse"><br>
-  </form>
-  </main>
+ 
+  
   
