@@ -24,7 +24,10 @@ function addRegister(){
       } catch (PDOException $e) {
         echo "ERROR: " . $e->getMessage();
       }
-      header('location: indexLogin.php');
+      $sec = 3; //Segundos aparece mensaje de login correcto y envio de mail
+      $message = "!REGISTRO CORRECTO¡. Se envia mail a su cuenta, Gracias!";
+      include('./view/success_header_view.php');
+      //header("Refresh: $sec; url=indexLogin.php"); //Despues de los segundos establecidos nos reinicia la página de Login  
     }else{
       //No mail correcto. Arroja mensaje y tras un tiempo vuelve a recargar página
       $sec = 3; //Segundos aparece mensaje de mail no valido

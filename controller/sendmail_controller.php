@@ -15,7 +15,6 @@ function sendmail($emailuser,$name){
     $headers .= "From: Foro PHP";
     $headers .= "User mail ".$emailuser;     //Añadimos datos concatenados por punto (.=)
     mail($to,$subject,$message, $headers);  //Funcion de envio
-    echo '<div class="message_login"><div><p class="success">EMAIL ENVIADO</p></div></div></p>';
 }
 
 //Función de validación de mail

@@ -33,12 +33,11 @@ function getLogin(){
         }
         
       } else {
+        $sec = 3; //Segundos aparece mensaje de login no valido
+        $message = 'LOGIN INVALIDO';
+        include('./view/error_header_view.php');
         session_write_close(); //Borramos sesiones anteriores
-        //Javascript para ventana emergante en caso de error
-					echo "
-					<script>alert('Nombre de usuario o password erroneos')</script>								
-					<script>window.location = './index.php'</script>
-					";
+        header("Refresh: $sec; url=indexLogin.php"); //Despues de los segundos establecidos nos reinicia la página de Login 
       }
   }
 }

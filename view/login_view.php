@@ -22,6 +22,5 @@ include('header_view.php');
 
     <input type="submit" class="btn btn-primary" value="Log in"><br>
     <p><a href="indexRegister.php">Nuevo Registro</a></p>
-  </form>
-  </main>
+
 

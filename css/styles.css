@@ -487,6 +487,10 @@ input[type=submit]:hover {
 .form-group {
   margin-bottom: 1rem;
 }
+.success {
+  color: #155724;
+  font-weight: bold;
+}
 
 .errors {
   color: #a62d2d;
