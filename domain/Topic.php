@@ -68,6 +68,15 @@ class Topic
   }
 
   }
+  public function deleteTopic($dbh,$id){         //Funcion eliminar
+    try {
+      $stmt = $dbh->prepare('DELETE FROM topics WHERE topic_id=:id');
+      $stmt->bindParam(':id', $id, PDO::PARAM_STR);
+      $stmt->execute();
+  } catch (PDOException $e) {
+      echo "ERROR: " . $e->getMessage();
+  }
+  }
 
 }
 

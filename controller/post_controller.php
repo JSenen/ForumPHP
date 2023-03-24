@@ -1,6 +1,6 @@
 <?php
 require_once('./domain/Conecction.php');     //Llamamos al modelo de conexion PDO
-require_once('./domain/Post.php');          //Requerimos clase Category 
+require_once('./domain/Post.php');          //Requerimos clase Post 
 function iniPost($topic_id){
   $conection = new Conecction();
   $dbh = $conection->getConection();      //Realizamos la conexion y la almacenamos en una varible
