@@ -1,19 +1,7 @@
 <?php
-function modCat($dbh,$id){
-  //Recibimos la conexión desde el controller y la id de la categoria
-  try {
-      //configuramos la consulta a la base de datos
-      //Evitamos la inyeccion de SQL por medio de marcadores de posición y bindParam
-      //Seleccionamos los datos que nos interesan
-      $stmt = $dbh->prepare("SELECT cat_name, cat_description FROM categories WHERE cat_id = :id");
-      $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-      $stmt->execute();
-      $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
-      
-
-    } catch (PDOException $e) {
-      echo "ERROR: " . $e->getMessage();
-    }
+function modCat($dbh,$id,$resultado){
+  //Recibimos la conexión desde el controller y las categorias
+  
       //Pasamos el resultado al formulario
       foreach ($resultado as $category) 
                { 
@@ -26,18 +14,10 @@ function modCat($dbh,$id){
 
           $cat_name = htmlspecialchars($_POST['cat_name']);
           $cat_description = htmlspecialchars($_POST['cat_description']);
-
-  // guardamos los datos en la base de datos
-          try {
-              //configuramos el prepared statement
-              $stmt = $dbh->prepare("UPDATE categories SET cat_name = :cat_name, cat_description = :cat_description WHERE cat_id = :id");
-              $stmt->bindParam(':cat_name', $cat_name, PDO::PARAM_STR);
-              $stmt->bindParam(':cat_description', $cat_description, PDO::PARAM_STR);
-              $stmt->bindParam(':id', $id, PDO::PARAM_STR);
-              $stmt->execute();
-          } catch (PDOException $e) {
-              echo "ERROR: " . $e->getMessage();
-          }
+          // guardamos los datos en la base de datos
+          $category = new Category();
+          $category->modyCategory($dbh,$cat_name,$cat_description,$id);
+          
           //una vez guardados, redirigimos a la p�gina principal
           header("Location: indexCategory.php");
               

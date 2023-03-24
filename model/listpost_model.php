@@ -1,15 +1,6 @@
 <?php
-function listPost($dbh,$id){
+function listPost($dbh,$comentarios,$topic_id){
   
-  //Recibimos la conexión desde el controller
-  try {
-      //configuramos la consulta a la base de datos
-      $stmt = $dbh->prepare("SELECT post_id, post_content, post_date, post_by FROM posts WHERE post_topic = :id");
-      $stmt->bindParam(":id", $id, PDO::PARAM_INT);
-      $stmt->execute();
-      
-      $comentarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
       //Visualizamos el listado de comentarios
       ?>        
       <main class="container" >
@@ -39,7 +30,7 @@ function listPost($dbh,$id){
             if($_SESSION['user_level'] == 0 || $_SESSION['user_level'] == 1) {
             ?>
             <!-- Pasamos el $id del tema al que pertenece el comentario -->
-            <a href="indexAddPost.php?id=<?= $id ?>" class="btn btn-secondary">Añadir</a>
+            <a href="indexAddPost.php?id=<?= $topic_id ?>" class="btn btn-secondary">Añadir</a>
             <?php
             }
              ?>
@@ -47,7 +38,5 @@ function listPost($dbh,$id){
            </section>
       
       <?php  
-  } catch (PDOException $e) {
-      echo "ERROR: " . $e->getMessage();
-  }
+ 
 }

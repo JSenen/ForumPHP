@@ -13,15 +13,10 @@ function addNewCategory($dbh){
       
       } else {
 // guardamos los datos en la base de datos
-          try {
-              $sql = "INSERT INTO categories (cat_name, cat_description) VALUES (:cat_name,:cat_description)";
-              $stmt = $dbh->prepare($sql);
-              $stmt->bindParam(':cat_name', $_POST['cat_name'], PDO::PARAM_STR);
-              $stmt->bindParam(':cat_description', $_POST['cat_description'], PDO::PARAM_STR);
-              $stmt->execute();
-          } catch (PDOException $e) {
-              echo "ERROR: " . $e->getMessage();
-          }
+//Creamos un objeto categoria
+    $category = new Category();
+    $category->addCategory($cat_name,$cat_description,$dbh);
+          
           header('Location: ./indexCategory.php');
       }
   }

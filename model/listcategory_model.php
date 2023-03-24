@@ -1,14 +1,7 @@
 <?php
-function listCategory($dbh){
+function listCategory($dbh,$resultado){
   //Recibimos la conexión desde el controller
-  try {
-      //configuramos la consulta a la base de datos
-      //Evitamos la inyeccion de SQL por medio de marcadores de posición y bindParam
-      $stmt = $dbh->prepare("SELECT cat_id, cat_name, cat_description FROM categories");
-      $stmt->execute();
-      $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
-      
-      
+ 
       //Visualizamos el listado de categorias
       ?>        
       <main class="container" id="content">
@@ -48,9 +41,7 @@ function listCategory($dbh){
            <?php
     
       
-  } catch (PDOException $e) {
-      echo "ERROR: " . $e->getMessage();
-  }
+
   
 }
 
