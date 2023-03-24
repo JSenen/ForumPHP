@@ -1,5 +1,6 @@
+
 <?php
-require('./domain/Conecction.php'); //Clase conexion
+require_once('./domain/Conecction.php'); //Clase conexion
 function checkLogin(){
   
   require('./view/login_view.php');
