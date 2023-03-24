@@ -18,6 +18,7 @@ class Conecction{
         
     } catch (PDOException $e) {
         echo $e->getMessage();
+        redirect('errorpagePDO_view.php'); 
     }
     return $dbh;
 }
