@@ -34,7 +34,7 @@ function addCategory(){
 function modCategory($id){
   $conection = new Conecction();
   $dbh = $conection->getConection();
-  $categories = new Category();             // Creamos un Objeto categoria
+  $categories = new Category();                       // Creamos un Objeto categoria
   $resultado = $categories->getOneCategory($id,$dbh); //Recibimos resultado categoria por id
   include('view/MemberHome_view.php');  
   include('model/modcategory_model.php');
