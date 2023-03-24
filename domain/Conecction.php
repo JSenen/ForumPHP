@@ -1,6 +1,6 @@
 <?php
 class Conecction{
-  
+    
     function __construct()
   { }
   //Funcion para conectar

@@ -1,18 +1,6 @@
 <?php
-function listTopics($dbh,$id){
-  
-  //Recibimos la conexión desde el controller al igual que la $id de la categoria a la que corresponden
-  try {
-      //configuramos la consulta a la base de datos para evitar el ataque inyeccion SQL por medio
-      // de marcadores de posicion y bindParam
-      $stmt = $dbh->prepare("SELECT topic_id, topic_subject, topic_by FROM topics WHERE topic_cat = :id ");
-      $stmt->bindParam(":id", $id, PDO::PARAM_INT);
-      $stmt->execute();
-  
-      $temas = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-      //Visualizamos el listado de categorias
-      ?>        
+function listTopics($dbh,$temas,$cat_id){
+?>        
       <main class="container" id="content">
         <section class="header">
           <h1>Temas</h1>
@@ -37,16 +25,13 @@ function listTopics($dbh,$id){
           if($_SESSION['user_level'] == 0 || $_SESSION['user_level'] == 1) {
           ?>
           <!-- Para ñadir el tema pasamos el id de la categoria -->
-          <a href="indexAddTopic.php?id=<?= $id ?>" class="btn btn-secondary">Añadir</a>
+          <a href="indexAddTopic.php?id=<?= $cat_id ?>" class="btn btn-secondary">Añadir</a>
           <?php
           }
            ?>
-         
          </section>
       <?php  
-  } catch (PDOException $e) {
-      echo "ERROR: " . $e->getMessage();
-  }
+  
 }
 
 
