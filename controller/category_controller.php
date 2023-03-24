@@ -16,7 +16,7 @@ function iniCategory(){
   $dbh = $conection->getConection();        //Realizamos la conexion y la almacenamos en una varible
   include('view/header_view.php');          //Llamamos a la vista del listado de categorias
   $categories = new Category();             // Creamos un Objeto categoria
-  $resultado = $categories->getCategories($dbh,1);  //Obtenemos resultado
+  $resultado = $categories->getCategories($dbh);  //Obtenemos resultado. 
   include('model/listcategory_model.php');  //LLamamos al modelo que gestiona el listado de categorias
   listCategory($dbh,$resultado);            //Ejecutamos función listado categorias del model
 }
@@ -27,7 +27,7 @@ function addCategory(){
   include('view/MemberHome_view.php');      //Cabecera visible para usuarios registrados
   include('view/addcategory_view.php');
   include('model/addcategory_model.php');
-  addNewCategory($dbh);
+  addNewCategory($dbh);                     //Añadimos categoria
   
 }
 
@@ -38,5 +38,5 @@ function modCategory($id){
   $resultado = $categories->getOneCategory($id,$dbh); //Recibimos resultado categoria por id
   include('view/MemberHome_view.php');  
   include('model/modcategory_model.php');
-  modCat($dbh,$id,$resultado);
+  modCat($dbh,$id,$resultado);                        //Modificamos categoria
 }

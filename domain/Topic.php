@@ -1,5 +1,6 @@
 <?php
 /* Clase TOPIC. Realiza las distintas funciones asociadas a la tabla temas (topics) de la base de datos */
+include('./model/utils.php');
 class Topic
 {
   public int $topic_id;
@@ -20,10 +21,13 @@ class Topic
       $stmt->bindParam(':id', $id, PDO::PARAM_INT);
       $stmt->execute();
       $temas = $stmt->fetchAll(PDO::FETCH_ASSOC);  
-      
+      if (!$temas) {                                     // Si no existe 
+        redirect('classnofound_view.php'); 
+    }
 
     } catch (PDOException $e) {
       echo "ERROR: " . $e->getMessage();
+      redirect('errorpagePDO_view.php'); 
     }
     return $temas;
 
@@ -34,9 +38,13 @@ class Topic
         $stmt->bindParam(":id", $cat_id, PDO::PARAM_INT);
         $stmt->execute();
         $temas = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        if (!$temas) {                                     // Si no existe 
+          redirect('classnofound_view.php'); 
+      }
         return $temas;
       } catch (PDOException $e) {
         echo "ERROR: " . $e->getMessage();
+        redirect('errorpagePDO_view.php'); 
     }
    
   }
@@ -52,6 +60,7 @@ class Topic
       echo "LO HE GRABADO";
   } catch (PDOException $e) {
       echo "ERROR: " . $e->getMessage();
+      redirect('errorpagePDO_view.php'); 
   }
 
   }
@@ -65,6 +74,7 @@ class Topic
       $stmt->execute();
   } catch (PDOException $e) {
       echo "ERROR: " . $e->getMessage();
+      redirect('errorpagePDO_view.php'); 
   }
 
   }
@@ -75,6 +85,7 @@ class Topic
       $stmt->execute();
   } catch (PDOException $e) {
       echo "ERROR: " . $e->getMessage();
+      redirect('errorpagePDO_view.php'); 
   }
   }
 

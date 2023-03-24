@@ -1,6 +1,9 @@
 
 <div class="form-group">
-      <div class="success"><?php echo $message ?></div>
+      <div class="noerrors"><?php echo $message ?></div>
     </div>
     </form>
   </main>
+
+
+
