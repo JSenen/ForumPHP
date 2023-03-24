@@ -1,5 +1,6 @@
 <?php
 /* Clase CATEGORY. Realiza las distintas funciones asociadas a la tabla ctegories de la base de datos */
+include('./model/utils.php');
 class Category
 {
   public String $cat_name;
@@ -19,22 +20,29 @@ class Category
       $stmt->bindParam(':id', $id, PDO::PARAM_INT);
       $stmt->execute();
       $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
-      
+      if (!$resultado) {                                     // Si no existe 
+        redirect('classnofound_view.php'); 
+    }
 
     } catch (PDOException $e) {
       echo "ERROR: " . $e->getMessage();
+      redirect('errorpagePDO_view.php'); 
     }
     return $resultado;
 
   }
-  public function getCategories($dbh,$id){      //Función obtiene listado completo de categorias
+  public function getCategories($dbh){      //Función obtiene listado completo de categorias
       try{
         $stmt = $dbh->prepare("SELECT cat_id, cat_name, cat_description FROM categories");
         $stmt->execute();
         $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        if (!$resultado) {                                     // Si no existe 
+          redirect('classnofound_view.php'); 
+        }
         return $resultado;
       } catch (PDOException $e) {
         echo "ERROR: " . $e->getMessage();
+        redirect('errorpagePDO_view.php'); 
     }
    
   }
@@ -48,6 +56,7 @@ class Category
       $stmt->execute();
   } catch (PDOException $e) {
       echo "ERROR: " . $e->getMessage();
+      redirect('errorpagePDO_view.php'); 
   }
 
   }
@@ -62,6 +71,7 @@ class Category
       $stmt->execute();
   } catch (PDOException $e) {
       echo "ERROR: " . $e->getMessage();
+      redirect('errorpagePDO_view.php'); 
   }
 
   }
@@ -72,6 +82,7 @@ class Category
       $stmt->execute();
   } catch (PDOException $e) {
       echo "ERROR: " . $e->getMessage();
+      redirect('errorpagePDO_view.php'); 
   }
   }
 

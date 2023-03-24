@@ -1,5 +1,6 @@
 <?php
 /* Clase POST. Realiza las distintas funciones asociadas a la tabla comentarios(posts) de la base de datos */
+include('./model/utils.php');
 class Post
 {
   public int $post_id;
@@ -18,9 +19,13 @@ class Post
       $stmt->bindParam(':id', $post_id, PDO::PARAM_INT);
       $stmt->execute();
       $comentario = $stmt->fetchAll(PDO::FETCH_ASSOC);
+      if (!$comentario) {                                     // Si no existe 
+        redirect('classnofound_view.php'); 
+      }
 
     } catch (PDOException $e) {
       echo "ERROR: " . $e->getMessage();
+      redirect('errorpagePDO_view.php'); 
     }
     return $comentario;
 
@@ -31,9 +36,13 @@ class Post
         $stmt->bindParam(":id", $topic_id, PDO::PARAM_INT);
         $stmt->execute();
         $comentarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        if (!$comentarios) {                                     // Si no existe 
+          redirect('classnofound_view.php'); 
+        }
         return $comentarios;
       } catch (PDOException $e) {
         echo "ERROR: " . $e->getMessage();
+        redirect('errorpagePDO_view.php'); 
     }
    
   }
@@ -48,6 +57,7 @@ class Post
               $stmt->execute();
   } catch (PDOException $e) {
       echo "ERROR: " . $e->getMessage();
+      redirect('errorpagePDO_view.php'); 
   }
 
   }
@@ -61,6 +71,7 @@ class Post
       $stmt->execute();
   } catch (PDOException $e) {
       echo "ERROR: " . $e->getMessage();
+      redirect('errorpagePDO_view.php'); 
   }
 
   }
@@ -72,6 +83,7 @@ class Post
       $stmt->execute();
   } catch (PDOException $e) {
       echo "ERROR: " . $e->getMessage();
+      redirect('errorpagePDO_view.php'); 
   }
   }
 

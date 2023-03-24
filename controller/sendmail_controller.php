@@ -19,7 +19,7 @@ function sendmail($emailuser,$name){
 
 //Función de validación de mail
 function validate_mail($email){
-    if(filter_var($email, FILTER_VALIDATE_EMAIL)) {     //Valida mail
+    if(filter_var($email, FILTER_VALIDATE_EMAIL)) {     //Valida mail escrito sea correcto
         return $email;
     }else{
        return $email = '';}

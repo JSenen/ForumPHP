@@ -496,6 +496,10 @@ input[type=submit]:hover {
   color: #a62d2d;
   font-weight: bold;
 }
+.noerrors {
+  color: #28bd4d;
+  font-weight: bold;
+}
 
 .form-login {
   max-width: 500px;
