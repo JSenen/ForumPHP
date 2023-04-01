@@ -136,6 +136,57 @@ function fixdate($date) {
   return date('d-m-Y', strtotime($date));
 }
 ```
+#### UTILIZACION DE OBJETOS
+
+En el modelo, disponemos de 4 objetos que iremos utilizando durante el desarrollo de la aplicación
+
+***CONECCTION***
+En esta clase, se encuentra el constructor para la conexión a la base de datos por medio de PDO por medio
+de una función a la que se lamará durante las diferentes peticiones.
+
+```
+ function getConection() {
+    // Con un array de opciones
+    try {
+        $dbname = "foro";            //Nombre de la Base de Datos
+        $user = "root";             // Usuario
+        $password = "root";         // Contraseña
+        $server = 'localhost';      // Dirección servidor
+        $dbh ="";
+        $dsn = "mysql:host=$server;dbname=$dbname;charset=UTF8";
+        $dbh = new PDO($dsn, $user, $password);
+        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+        redirect('errorpagePDO_view.php'); 
+    }
+    return $dbh;
+}
+```
+
+En la misma, tambien encontramos la funcion para comprobar el login del usuario
+```
+function getLogin()
+{
+    if ( isset ($_POST['username']) && ($_POST('userpassword'))) {
+        if($_POST['username'] == 'admin' && $_POST['userpassword'] == 'admin ') {
+            return $result = 'login';
+        } else {
+            return $result = 'invalida user';
+        }
+    }
+}
+```
+***CATEGORY**
+En modelo correspondiente a la entidad Category de la base de datos. 
+Podemos encontrar diferentes funciones a las que se llamara en distintos momentos, según el tipo
+de dato que necesitemos de la Base de Datos
+
+***POST**
+Igual que en el modelo Category
+***TOPIC***
+Igual que en el modelo Category
 
 
 
