@@ -1,8 +1,9 @@
 <?php
-session_start();
+
+$id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT); // Recibimos la id del Tema y validamos int
 define ('CONTROLLER_FOLDER',"controller/" );  //Directorio donde definimos los controladores
-define ('DEFAULT_CONTROLLER',"category");     //Controlador por defecto
-define ('DEFAULT_ACTION',"iniForum");         //Accion por defecto
+define ('DEFAULT_CONTROLLER',"post");     //Controlador por defecto
+define ('DEFAULT_ACTION',"addPost");      //Accion por defecto
 
 //Obtenemos el controlador. Si no por defecto
 $controller = DEFAULT_CONTROLLER;
@@ -24,9 +25,7 @@ else
 
 //Si action es una función, ejecutamos el script
 if ( is_callable ($action))
-  $action();
+  $action($id); //pasamos el id
 else
   die ("La accion requerida no existe 404 not found");
-
-
 
