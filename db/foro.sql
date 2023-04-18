@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:8889
--- Tiempo de generación: 18-04-2023 a las 20:12:02
+-- Tiempo de generación: 18-04-2023 a las 20:17:34
 -- Versión del servidor: 5.7.39
 -- Versión de PHP: 8.2.0
 
@@ -67,7 +67,8 @@ INSERT INTO `posts` (`post_id`, `post_content`, `post_date`, `post_topic`, `post
 (16, 'Puede alguien revisar mi código: \r\n\r\nif (isset($_POST[&#039;modifpost&#039;])) {\r\n\r\n          $subject = htmlspecialchars($_POST[&#039;post_content&#039;]);\r\n     \r\n          // guardamos los datos en la base de datos\r\n          $coment = new Post();\r\n          $coment-&gt;modyPost($dbh,$subject,$post_id);\r\n          \r\n          //una vez guardados, redirigimos a la página principal\r\n          header(&quot;Location: indexPost.php?id=&quot;.$post_topic);\r\n              ', '2023-03-24 18:50:20', 4, 10),
 (17, '¿Como puede MAMP funcionarme y XMAP no?', '2023-03-24 18:50:56', 4, 10),
 (18, '¿Alguien me hecha un cable para crear un foro como este?. Quiero que alguien me recuerde las $_SESSION. ', '2023-04-17 23:06:19', 4, 9),
-(19, '¿Cual sería la forma correcta de realizar un SELECT y evitar el SQL Intyect?', '2023-04-18 22:03:46', 4, 31);
+(19, '¿Cual sería la forma correcta de realizar un SELECT y evitar el SQL Intyect?', '2023-04-18 22:03:46', 4, 31),
+(20, 'Buenas noches a todos!. Soy nuevo en el foro y espero aprender de todos vosotros.', '2023-04-18 22:17:14', 4, 32);
 
 -- --------------------------------------------------------
 
@@ -115,7 +116,8 @@ INSERT INTO `users` (`user_id`, `user_name`, `user_mail`, `user_password`, `user
 (10, 'user', 'user@user.com', '$2y$10$xItLmCNhSr/JJXOIQf8Ro.rwOqrKHzBW1PtrOon/9q5N8p.xou3MC', 1),
 (19, 'juan', 'juan@gmail.com', '$2y$10$MOvsr2MEjLYtjw1U.1cxeu4ABcye3B2TpQSwJLDKsC48QVSC5cbA6', 1),
 (30, 'Pablo', 'pablo123@messenger.es', '$2y$10$uA4EMNwlGorHMjKYPm0q../fYMCqo3giFC/hSdNFvPcsGQEdHys3i', 1),
-(31, 'Juan Senen', 'jsenen@hotmail.com', '$2y$10$aa.DX2VV1uOsVsCK83LvoOWF2yZ4SZQiskOA2KxGf68o4J.xQjIdO', 1);
+(31, 'Juan Senen', 'jsenen@hotmail.com', '$2y$10$aa.DX2VV1uOsVsCK83LvoOWF2yZ4SZQiskOA2KxGf68o4J.xQjIdO', 1),
+(32, 'pepe', 'pepe@mail.com', '$2y$10$5SH290omYUPt6s/mapqKbe1SuNhRRuC9MbSfpPACdACKK7b.7ozH.', 1);
 
 --
 -- Índices para tablas volcadas
@@ -163,7 +165,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT de la tabla `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `post_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `post_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `topics`
@@ -175,7 +177,7 @@ ALTER TABLE `topics`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `user_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- Restricciones para tablas volcadas
