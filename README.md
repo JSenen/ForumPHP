@@ -25,7 +25,7 @@ La base de datos se compone de 4 tablas
 3. **POSTS** -> Comentarios o mensajes que se encuentran dentro de cada tema
 4. **USERS** -> Registro de usuarios. En el mismo se emplea **encriptación de contraseña** y se distinguen el nivel de usuario (Level 0 = Administrador / Level 1 = Usuario Registrado )
 
-![Imagen]([https://github.com/JSenen/ForumPHP/blob/main/ER_DB.png](https://github.com/JSenen/ForumPHP/blob/491fb0f8a75d661df7fbccc8816e69fd8812eee1/ER_BaseDatos.png))
+![ER_DB](https://github.com/JSenen/ForumPHP/blob/main/ER_DB.png)
 
 Existe un ***usuario "root", password "root"*** para el control de la Base de Datos y dentro de la misma un usuario ***"admin" y password "admin"***, asi como "***Pepe" password "pepe"*** para poder comprobar su funcionamiento.
 Se incorpora a este repositorio un **script** dentro del directorio db denominado foro.sql
