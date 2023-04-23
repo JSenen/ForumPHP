@@ -13,10 +13,16 @@ function addNewTopic($dbh,$topic_cat){
       
       } else {
         $tema = new Topic();
-        $tema->addOneTopic($topic_subject, $topic_cat, $topic_by, $dbh);
+        try{
+          $tema->addOneTopic($topic_subject, $topic_cat, $topic_by, $dbh);
         // guardamos los datos en la base de dato
         
         header("location: indexTopics.php?id=".$topic_cat);
+        }catch (Exception $e){
+          //Control de la excepcion
+          echo 'Ha ocurrido un error'.$e->getMessage();
+        }
+        
       }
       
   }

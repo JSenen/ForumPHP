@@ -8,9 +8,14 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
         $id = $_GET['id'];
     // eliminamos la entrada
         $post = new Post();
-        $post->deletePost($dbh,$id);
-    // redirigimos de vuelta a la página de vista principal
-    header('Location: indexCategory.php');
+        try {
+            $post->deletePost($dbh,$id);
+            // redirigimos de vuelta a la página de vista principal
+            header('Location: indexCategory.php');
+        }catch ( Exception $e){
+            echo 'Se ha producido un error'.$e->getMessage();
+        }
+       
     } else /* Si el ID no está configurado, o no es válido, volvemos
     a la página principal*/ {
      header('Location: index.php');

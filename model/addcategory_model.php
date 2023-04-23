@@ -15,9 +15,14 @@ function addNewCategory($dbh){
 // guardamos los datos en la base de datos
 //Creamos un objeto categoria
     $category = new Category();
-    $category->addCategory($cat_name,$cat_description,$dbh);
-          
-          header('Location: ./indexCategory.php');
+    try{
+      $category->addCategory($cat_name,$cat_description,$dbh);
+    header('Location: ./indexCategory.php');
+    } catch (Exception $e) {
+      // Manejar la excepción aquí
+      echo 'Ha ocurrido un error: ' . $e->getMessage();
+    }   
+         
       }
   }
 

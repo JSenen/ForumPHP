@@ -8,7 +8,12 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
         $id = $_GET['id'];
     // eliminamos la entrada
         $category = new Category();
-        $category->deleteCategory($dbh,$id);
+        try {
+            $category->deleteCategory($dbh,$id);
+        } catch (Exception $e){
+            echo 'Se ha producido un error'.$e->getMessage();
+        }
+       
     // redirigimos de vuelta a la p�gina de vista principal
         
     } else /* Si el ID no está configurado, o no es válido, volvemos

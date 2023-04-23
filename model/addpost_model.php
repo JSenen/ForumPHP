@@ -13,9 +13,15 @@ function addNewPost($dbh,$post_topic){
       } else {
         // guardamos los datos en la base de datos
         $comentario = new Post();
+        try {
         $comentario->addOnePost($post_content, $post_topic, $post_by, $dbh);
-          //Nos devuelve a la página de comentarios con la id del tema
-          header("location: indexPost.php?id=".$post_topic);
+                  //Nos devuelve a la página de comentarios con la id del tema
+                  header("location: indexPost.php?id=".$post_topic);
+        }catch (Exception $e){
+          // Manejar la excepción 
+        echo 'Ha ocurrido un error: ' . $e->getMessage();
+        }
+        
       }
   }
 

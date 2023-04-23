@@ -8,8 +8,13 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
         $id = $_GET['id'];
     // eliminamos la entrada
         $topic = new Topic();
-        $topic->deleteTopic($dbh,$id);
-    header("location: indexCategory.php");
+        try{
+            $topic->deleteTopic($dbh,$id);
+            header("location: indexCategory.php");
+        }catch (Exception $e){
+            echo 'Se ha producido un error'.$e->getMessage();
+        }
+        
 } else /* Si el ID no está configurado, o no es válido, volvemos
 a la página principal*/ {
  header('Location: index.php');
