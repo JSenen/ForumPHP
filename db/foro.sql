@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:8889
--- Tiempo de generación: 18-04-2023 a las 20:17:34
+-- Tiempo de generación: 23-04-2023 a las 21:05:25
 -- Versión del servidor: 5.7.39
 -- Versión de PHP: 8.2.0
 
@@ -41,7 +41,7 @@ INSERT INTO `categories` (`cat_id`, `cat_name`, `cat_description`) VALUES
 (27, 'PHP', 'Tutoriales, ideas, ejercicios...'),
 (28, 'Servidores', 'Sistemas Operativos'),
 (29, 'Programación', 'Diferentes lenguajes..Java, PHP, C#'),
-(30, 'IDE\'s', 'Hablemos de los IDE favoritos');
+(33, 'IDE´s', 'Todo sobre los IDE´s de programación en esta página');
 
 -- --------------------------------------------------------
 
@@ -64,11 +64,15 @@ CREATE TABLE `posts` (
 INSERT INTO `posts` (`post_id`, `post_content`, `post_date`, `post_topic`, `post_by`) VALUES
 (8, 'Alguien me ayuda con PDO??', '2023-03-24 18:49:39', 4, 10),
 (15, '¿Como puedo evitar la inyección SQL?', '2023-03-24 18:17:10', 18, 10),
-(16, 'Puede alguien revisar mi código: \r\n\r\nif (isset($_POST[&#039;modifpost&#039;])) {\r\n\r\n          $subject = htmlspecialchars($_POST[&#039;post_content&#039;]);\r\n     \r\n          // guardamos los datos en la base de datos\r\n          $coment = new Post();\r\n          $coment-&gt;modyPost($dbh,$subject,$post_id);\r\n          \r\n          //una vez guardados, redirigimos a la página principal\r\n          header(&quot;Location: indexPost.php?id=&quot;.$post_topic);\r\n              ', '2023-03-24 18:50:20', 4, 10),
-(17, '¿Como puede MAMP funcionarme y XMAP no?', '2023-03-24 18:50:56', 4, 10),
+(16, 'Puede alguien revisar por favor mi código: \r\n\r\nif (isset($_POST[&#039;modifpost&#039;])) {\r\n\r\n          $subject = htmlspecialchars($_POST[&#039;post_content&#039;]);\r\n     \r\n          // guardamos los datos en la base de datos\r\n          $coment = new Post();\r\n          $coment-&gt;modyPost($dbh,$subject,$post_id);\r\n          \r\n          //una vez guardados, redirigimos a la página principal\r\n          header(&quot;Location: indexPost.php?id=&quot;.$post_topic);\r\n              ', '2023-04-23 22:40:52', 4, 10),
 (18, '¿Alguien me hecha un cable para crear un foro como este?. Quiero que alguien me recuerde las $_SESSION. ', '2023-04-17 23:06:19', 4, 9),
 (19, '¿Cual sería la forma correcta de realizar un SELECT y evitar el SQL Intyect?', '2023-04-18 22:03:46', 4, 31),
-(20, 'Buenas noches a todos!. Soy nuevo en el foro y espero aprender de todos vosotros.', '2023-04-18 22:17:14', 4, 32);
+(20, 'Buenas noches a todos!. Soy nuevo en el foro y espero aprender de todos vosotros. Buenas noches', '2023-04-23 15:24:20', 4, 32),
+(22, '¿Que control de errores usarìas en este foro?', '2023-04-23 16:04:59', 4, 10),
+(25, 'Depende de lo que te interese. ¿Raid 5 o Raid 6?\r\n', '2023-04-23 19:22:43', 19, 10),
+(26, 'Que preferis?, C++ o C#', '2023-04-23 20:19:18', 26, 32),
+(28, 'Depende de lo que necesites. A mi personalmente me gusta más InteliJ para programar en Java. Pero reconozco que le estoy cogiendo el gusto a VS Code.', '2023-04-23 22:23:54', 27, 32),
+(30, 'Inyección SQL', '2023-04-23 22:42:33', 18, 19);
 
 -- --------------------------------------------------------
 
@@ -91,7 +95,13 @@ INSERT INTO `topics` (`topic_id`, `topic_subject`, `topic_cat`, `topic_by`) VALU
 (4, 'PHP', 27, 10),
 (18, 'PDO', 27, 10),
 (19, 'NAS', 28, 10),
-(21, 'Libros de interes', 29, 9);
+(21, 'Libros de interes', 29, 9),
+(22, 'PRUEBAS WEB', 27, 32),
+(23, 'Java o Python', 29, 10),
+(25, 'Android vs Swift', 29, 10),
+(26, 'C++', 29, 32),
+(27, 'Vs Code o InteliJ', 33, 10),
+(28, 'PRUEBAS LOCALHOST', 27, 32);
 
 -- --------------------------------------------------------
 
@@ -117,7 +127,9 @@ INSERT INTO `users` (`user_id`, `user_name`, `user_mail`, `user_password`, `user
 (19, 'juan', 'juan@gmail.com', '$2y$10$MOvsr2MEjLYtjw1U.1cxeu4ABcye3B2TpQSwJLDKsC48QVSC5cbA6', 1),
 (30, 'Pablo', 'pablo123@messenger.es', '$2y$10$uA4EMNwlGorHMjKYPm0q../fYMCqo3giFC/hSdNFvPcsGQEdHys3i', 1),
 (31, 'Juan Senen', 'jsenen@hotmail.com', '$2y$10$aa.DX2VV1uOsVsCK83LvoOWF2yZ4SZQiskOA2KxGf68o4J.xQjIdO', 1),
-(32, 'pepe', 'pepe@mail.com', '$2y$10$5SH290omYUPt6s/mapqKbe1SuNhRRuC9MbSfpPACdACKK7b.7ozH.', 1);
+(32, 'pepe', 'pepe@mail.com', '$2y$10$5SH290omYUPt6s/mapqKbe1SuNhRRuC9MbSfpPACdACKK7b.7ozH.', 1),
+(33, 'Juan', 'juan@hotmail.com', '$2y$10$hzFpl5VTe92aIti7Q7Zz7.w54gdM8q6dDVvAjb90fmUaw6150Wv9G', 1),
+(34, 'Antonio', 'antonio@gmail.com', '$2y$10$LymVdBRyNrDz8CrfZgePeeapqZZtMDoz9dRK9J3RAbLPg84yu6M3S', 1);
 
 --
 -- Índices para tablas volcadas
@@ -159,25 +171,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `cat_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `cat_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT de la tabla `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `post_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `post_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT de la tabla `topics`
 --
 ALTER TABLE `topics`
-  MODIFY `topic_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `topic_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `user_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- Restricciones para tablas volcadas
