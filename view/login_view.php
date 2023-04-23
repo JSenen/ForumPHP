@@ -1,11 +1,11 @@
 <?php
-include('header_view.php'); 
+include('header_view.php');
 ?>
 <main class="container" id="content">
 
-<section class="header">
-  <h1>Log in</h1>
-</section>
+  <section class="header">
+    <h1>Log in</h1>
+  </section>
   <form method="POST" action="" class="form-login">
 
     <div class="form-group">
@@ -22,5 +22,4 @@ include('header_view.php');
 
     <input type="submit" class="btn btn-primary" value="Log in"><br>
     <p><a href="indexRegister.php">Nuevo Registro</a></p>
-
-
+    <?= require_once('footer_view.php') ?>

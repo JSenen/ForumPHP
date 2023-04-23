@@ -43,7 +43,7 @@ class Post
   }
   public function getPosts($dbh,$topic_id){      //Función obtiene listado completo de comentarios
       try{
-        $stmt = $dbh->prepare("SELECT post_id, post_content, post_date, post_by FROM posts WHERE post_topic = :id");
+        $stmt = $dbh->prepare("SELECT post_id, post_content, post_date, post_by FROM posts WHERE post_topic = :id ORDER BY post_date ASC" );
         $stmt->bindParam(":id", $topic_id, PDO::PARAM_INT);
         $stmt->execute();
         $comentarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
