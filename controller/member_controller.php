@@ -1,9 +1,10 @@
 <?php
 require('./domain/Conecction.php'); //Clase conexion
 
-function closeSession(){
+function closeSession()
+{
   session_start();
-// Terminar la sesión:
+  // Terminar la sesión:
   session_destroy();
   header('location: ./index.php');
 

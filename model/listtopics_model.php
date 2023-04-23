@@ -33,7 +33,7 @@ function listTopics($dbh, $temas, $cat_id)
     }
     ?>
   </section>
-<?php
+  <?php
 
 }
 

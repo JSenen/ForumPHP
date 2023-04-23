@@ -3,9 +3,9 @@ include('header_view.php');
 ?>
 <main class="container" id="content">
 
-<section class="header">
-  <h1>Nuevo Registro</h1>
-</section>
+  <section class="header">
+    <h1>Nuevo Registro</h1>
+  </section>
   <form method="POST" action="" class="form-login">
 
     <div class="form-group">
@@ -25,6 +25,3 @@ include('header_view.php');
     </div>
 
     <input type="submit" class="btn btn-primary" name="register" value="Registrarse"><br>
-  
-  
-  

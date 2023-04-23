@@ -3,26 +3,29 @@
 //require_once('./model/utils.php');
 class Category
 {
-  public String $cat_name;
-  public String $cat_description;
+  public string $cat_name;
+  public string $cat_description;
   public int $cat_id;
   public PDO $dbh;
-  public function __construct(){
-     
+  public function __construct()
+  {
+
   }
-  function fixdate($date) {
+  function fixdate($date)
+  {
     //Funcion que nos permite modificar el formato de la fecha 
     return date('d-m-Y', strtotime($date));
   }
-  
+
   function redirect(string $location)
   //función para redirigir a la pagina que interesa según el id que no encuentre
   {
-      header('Location: view/' . $location);        // Redirige a la página  
-      exit;                                                          
+    header('Location: view/' . $location); // Redirige a la página  
+    exit;
   }
-  
-  public function getOneCategory($id, $dbh){  //Funcion buscar una categoria
+
+  public function getOneCategory($id, $dbh)
+  { //Funcion buscar una categoria
     try {
       //configuramos la consulta a la base de datos
       //Evitamos la inyeccion de SQL por medio de marcadores de posición y bindParam
@@ -31,48 +34,51 @@ class Category
       $stmt->bindParam(':id', $id, PDO::PARAM_INT);
       $stmt->execute();
       $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
-      if (!$resultado) {                                     // Si no existe 
-        redirect('classnofound_view.php'); 
-    }
+      if (!$resultado) { // Si no existe 
+        redirect('classnofound_view.php');
+      }
 
     } catch (PDOException $e) {
       echo "ERROR: " . $e->getMessage();
-      redirect('errorpagePDO_view.php'); 
+      redirect('errorpagePDO_view.php');
     }
     return $resultado;
 
   }
-  public function getCategories($dbh){      //Función obtiene listado completo de categorias
-      try{
-        $stmt = $dbh->prepare("SELECT cat_id, cat_name, cat_description FROM categories");
-        $stmt->execute();
-        $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        if (!$resultado) {                                     // Si no existe 
-          redirect('classnofound_view.php'); 
-        }
-        return $resultado;
-      } catch (PDOException $e) {
-        echo "ERROR: " . $e->getMessage();
-        redirect('errorpagePDO_view.php'); 
+  public function getCategories($dbh)
+  { //Función obtiene listado completo de categorias
+    try {
+      $stmt = $dbh->prepare("SELECT cat_id, cat_name, cat_description FROM categories");
+      $stmt->execute();
+      $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
+      if (!$resultado) { // Si no existe 
+        redirect('classnofound_view.php');
+      }
+      return $resultado;
+    } catch (PDOException $e) {
+      echo "ERROR: " . $e->getMessage();
+      redirect('errorpagePDO_view.php');
     }
-   
+
   }
 
-  public function addCategory($cat_name, $cat_description, $dbh){            //Función añadir categoria
+  public function addCategory($cat_name, $cat_description, $dbh)
+  { //Función añadir categoria
     try {
       $sql = "INSERT INTO categories (cat_name, cat_description) VALUES (:cat_name,:cat_description)";
       $stmt = $dbh->prepare($sql);
       $stmt->bindParam(':cat_name', $cat_name, PDO::PARAM_STR);
       $stmt->bindParam(':cat_description', $cat_description, PDO::PARAM_STR);
       $stmt->execute();
-  } catch (PDOException $e) {
+    } catch (PDOException $e) {
       echo "ERROR: " . $e->getMessage();
-      redirect('errorpagePDO_view.php'); 
-  }
+      redirect('errorpagePDO_view.php');
+    }
 
   }
 
-  public function modyCategory($dbh,$cat_name,$cat_description,$id){       //Función modificar categorias
+  public function modyCategory($dbh, $cat_name, $cat_description, $id)
+  { //Función modificar categorias
     try {
       //configuramos el prepared statement
       $stmt = $dbh->prepare("UPDATE categories SET cat_name = :cat_name, cat_description = :cat_description WHERE cat_id = :id");
@@ -80,21 +86,22 @@ class Category
       $stmt->bindParam(':cat_description', $cat_description, PDO::PARAM_STR);
       $stmt->bindParam(':id', $id, PDO::PARAM_STR);
       $stmt->execute();
-  } catch (PDOException $e) {
+    } catch (PDOException $e) {
       echo "ERROR: " . $e->getMessage();
-      redirect('errorpagePDO_view.php'); 
-  }
+      redirect('errorpagePDO_view.php');
+    }
 
   }
-  public function deleteCategory($dbh, $id){     //Funcion eliminar
+  public function deleteCategory($dbh, $id)
+  { //Funcion eliminar
     try {
       $stmt = $dbh->prepare('DELETE FROM categories WHERE cat_id=:id');
       $stmt->bindParam(':id', $id, PDO::PARAM_STR);
       $stmt->execute();
-  } catch (PDOException $e) {
+    } catch (PDOException $e) {
       echo "ERROR: " . $e->getMessage();
-      redirect('errorpagePDO_view.php'); 
-  }
+      redirect('errorpagePDO_view.php');
+    }
   }
 
 }

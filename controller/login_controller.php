@@ -1,17 +1,18 @@
-
 <?php
 require_once('./domain/Conecction.php'); //Clase conexion
-function checkLogin(){
-  
+function checkLogin()
+{
+
   require('./view/login_view.php');
   require('./model/login_model.php');
   getLogin(); //Comprobamos login
 }
 
-function addUser(){
+function addUser()
+{
   require('./view/Register_view.php');
   require('./model/register_model.php');
   addRegister(); //Añadimos nuevo usuario
 }
 
-?>  
+?>
