@@ -1,6 +1,6 @@
 <?php
 /* Clase POST. Realiza las distintas funciones asociadas a la tabla comentarios(posts) de la base de datos */
-include('./model/utils.php');
+//require_once('./model/utils.php');
 class Post
 {
   public int $post_id;
@@ -10,6 +10,17 @@ class Post
   public PDO $dbh;
   public function __construct(){
      
+  }
+  function fixdate($date) {
+    //Funcion que nos permite modificar el formato de la fecha 
+    return date('d-m-Y', strtotime($date));
+  }
+  
+  function redirect(string $location)
+  //función para redirigir a la pagina que interesa según el id que no encuentre
+  {
+      header('Location: view/' . $location);        // Redirige a la página  
+      exit;                                                          
   }
   
   public function getOnePost($post_id, $dbh){  //Funcion buscar un comentario
@@ -37,7 +48,7 @@ class Post
         $stmt->execute();
         $comentarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
         if (!$comentarios) {                                     // Si no existe 
-          redirect('classnofound_view.php'); 
+          header('indexAddPost.php'); 
         }
         return $comentarios;
       } catch (PDOException $e) {

@@ -1,6 +1,6 @@
 <?php
 /* Clase CATEGORY. Realiza las distintas funciones asociadas a la tabla ctegories de la base de datos */
-include('./model/utils.php');
+//require_once('./model/utils.php');
 class Category
 {
   public String $cat_name;
@@ -9,6 +9,17 @@ class Category
   public PDO $dbh;
   public function __construct(){
      
+  }
+  function fixdate($date) {
+    //Funcion que nos permite modificar el formato de la fecha 
+    return date('d-m-Y', strtotime($date));
+  }
+  
+  function redirect(string $location)
+  //función para redirigir a la pagina que interesa según el id que no encuentre
+  {
+      header('Location: view/' . $location);        // Redirige a la página  
+      exit;                                                          
   }
   
   public function getOneCategory($id, $dbh){  //Funcion buscar una categoria

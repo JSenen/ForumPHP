@@ -1,6 +1,6 @@
 <?php
 /* Clase TOPIC. Realiza las distintas funciones asociadas a la tabla temas (topics) de la base de datos */
-include('./model/utils.php');
+//require_once('./model/utils.php');
 class Topic
 {
   public int $topic_id;
@@ -10,6 +10,17 @@ class Topic
   public PDO $dbh;
   public function __construct(){
      
+  }
+  function fixdate($date) {
+    //Funcion que nos permite modificar el formato de la fecha 
+    return date('d-m-Y', strtotime($date));
+  }
+  
+  function redirect(string $location)
+  //función para redirigir a la pagina que interesa según el id que no encuentre
+  {
+      header('Location: view/' . $location);        // Redirige a la página  
+      exit;                                                          
   }
   
   public function getOneTopic($id, $dbh){  //Funcion buscar una categoria
@@ -39,7 +50,7 @@ class Topic
         $stmt->execute();
         $temas = $stmt->fetchAll(PDO::FETCH_ASSOC);
         if (!$temas) {                                     // Si no existe 
-          redirect('classnofound_view.php'); 
+          header('indexAddTopic.php'); 
       }
         return $temas;
       } catch (PDOException $e) {
